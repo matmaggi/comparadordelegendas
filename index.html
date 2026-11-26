@@ -28,6 +28,16 @@ button:hover{border-color:var(--ac)}
 .chip{display:inline-flex;gap:6px;align-items:center;border:1.5px solid var(--c);border-radius:999px;padding:2px 9px;font-size:12px;cursor:pointer;background:color-mix(in srgb,var(--c) 16%,transparent);user-select:none}
 .chip i{font-style:normal;font-weight:700;background:var(--c);color:#fff;border-radius:999px;padding:0 6px;font-size:11px}
 .chip.on{background:var(--c);color:#fff}.chip.on i{background:#fff;color:var(--c)}.chip.zero{opacity:.4}
+.cgrp{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;padding:6px 10px;border:1px solid var(--bd);border-radius:12px;background:var(--card)}
+.cgl{font-size:11.5px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.04em;cursor:pointer;user-select:none;margin-right:2px}
+.cgl:hover{color:var(--tx)}
+#resumo{margin-top:12px;text-align:center;font-size:14px;color:var(--mu)}
+#resumo b{color:var(--tx)}
+#resumo .rbar{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;align-items:center}
+#resumo button{font-size:13px;padding:4px 12px}
+.meta .nums{display:block;color:var(--tx);font-weight:700;white-space:nowrap}
+.relmenu{position:absolute;z-index:60;display:flex;gap:6px;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:6px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.relmenu button.mini{margin:0;padding:4px 12px;font-size:.85rem}
 .opts{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;margin-top:12px;color:var(--tx);background:var(--t2);border:1px solid var(--bd);border-top:4px solid var(--amber);border-radius:12px;padding:12px 16px}
 .opts label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}.opts input[type=number]{width:64px}
 .sticky{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 20px;border-bottom:1px solid var(--bd);display:grid;grid-template-columns:250px minmax(0,1fr) minmax(0,1fr) 110px;gap:12px;text-align:center;font-weight:600;font-size:12px;color:var(--mu)}
@@ -64,12 +74,26 @@ body{border-top:5px solid;border-image:linear-gradient(90deg,#2f9e78,#f59f00,#4c
 footer.ft{text-align:center;color:var(--mut);font-size:.9rem;line-height:1.5;padding:28px 20px 32px;max-width:none}
 footer.ft p{margin:0}footer.ft p+p{margin-top:6px}
 footer.ft a{color:var(--ac);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* ===== balão de ajuda (README) ===== */
+.fh .brand{position:relative}
+.ajuda{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ac);color:var(--onac);font:700 15px/1 var(--sys);cursor:help;flex:none;align-self:center;user-select:none}
+.ajuda-box{position:absolute;top:100%;left:50%;transform:translateX(-50%);z-index:100;width:800px;max-width:calc(100vw - 32px);max-height:75vh;overflow:auto;margin-top:8px;padding:18px 24px;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-top:4px solid var(--ac);border-radius:12px;box-shadow:0 14px 36px rgba(0,0,0,.25);font:400 14px/1.55 var(--sys);text-align:justify;hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;cursor:auto;visibility:hidden;opacity:0;transition:opacity .12s ease .3s,visibility 0s linear .42s!important}
+.ajuda:hover .ajuda-box,.ajuda:focus .ajuda-box,.ajuda:focus-within .ajuda-box,.ajuda-box:hover{visibility:visible;opacity:1;transition:opacity .12s ease 0s,visibility 0s linear 0s!important}
+.ajuda-box h2{font:800 1.3rem/1.2 var(--disp);margin:0 0 6px;text-align:left}
+.ajuda-box h3{font:700 1.05rem/1.25 var(--disp);margin:16px 0 4px;text-align:left}
+.ajuda-box h4{font:700 .95rem/1.3 var(--sys);margin:12px 0 2px;text-align:left}
+.ajuda-box p{margin:6px 0}
+.ajuda-box ul{margin:4px 0;padding-left:22px}
+.ajuda-box li{margin:3px 0}
+/* ===== PIX ===== */
+.pix{user-select:all;-webkit-user-select:all;cursor:pointer;color:var(--tx);overflow-wrap:anywhere}
 </style>
 </head>
 <body>
 <header>
   <div class="fh">
-  <div class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><rect class="logo-bg" width="64" height="64" rx="16"/><rect class="logo-fg" x="11" y="14" width="18" height="5" rx="2.5"/><rect class="logo-fg" x="11" y="24" width="14" height="5" rx="2.5"/><rect class="logo-fg" x="11" y="34" width="18" height="5" rx="2.5"/><rect class="logo-fg" x="35" y="14" width="18" height="5" rx="2.5"/><rect class="logo-fg" x="35" y="24" width="18" height="5" rx="2.5" opacity=".55"/><rect class="logo-fg" x="35" y="34" width="18" height="5" rx="2.5"/><path class="logo-st" d="M20 49H44M26 44L20 49L26 54M38 44L44 49L38 54" stroke-width="3.5"/></svg><h1>Comparador de Legendas</h1></div>
+  <div class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><rect class="logo-bg" width="64" height="64" rx="16"/><rect class="logo-fg" x="11" y="14" width="18" height="5" rx="2.5"/><rect class="logo-fg" x="11" y="24" width="14" height="5" rx="2.5"/><rect class="logo-fg" x="11" y="34" width="18" height="5" rx="2.5"/><rect class="logo-fg" x="35" y="14" width="18" height="5" rx="2.5"/><rect class="logo-fg" x="35" y="24" width="18" height="5" rx="2.5" opacity=".55"/><rect class="logo-fg" x="35" y="34" width="18" height="5" rx="2.5"/><path class="logo-st" d="M20 49H44M26 44L20 49L26 54M38 44L44 49L38 54" stroke-width="3.5"/></svg><h1>Comparador de Legendas</h1><span class="ajuda" tabindex="0" role="button" aria-label="Sobre o Comparador de Legendas">?<div class="ajuda-box" role="tooltip"><h2>Comparador de Legendas</h2><p><b>Compare duas versões de uma legenda e veja exatamente o que mudou: texto, tempo, pontuação, itálico e mais.</b></p><p>O Comparador de Legendas coloca a versão original e a modificada lado a lado, pareia as legendas automaticamente e classifica cada diferença. Serve para conferir revisões, entender o que o QC alterou ou checar atualizações de template.</p><h3>Formatos aceitos</h3><p>SRT, DFXP, TTML, PXTT e TTAL (os dois arquivos podem estar em formatos diferentes), em UTF-8, UTF-16 ou Windows-1252. Lê corretamente timecode drop-frame (29,97), estilos sobrepostos de TTAL e legendas SRT com linha em branco no meio do texto.</p><h3>Funcionalidades</h3><ul><li><b>Pareamento inteligente</b> por texto e tempo, mesmo quando legendas foram adicionadas, removidas ou deslocadas.</li><li><b>Detecta legendas mescladas e divididas</b> (várias legendas de um lado viraram uma do outro, e vice-versa).</li><li><b>Diferença palavra por palavra:</b> trechos removidos em vermelho e acrescentados em verde; espaços e quebras de linha aparecem visíveis quando mudam.</li><li><b>Resumo no topo:</b> quantas linhas foram comparadas, quantas mudaram (e a porcentagem), quantas mudanças há em cada grupo e as categorias mais comuns.</li><li><b>Categorias de mudança, com contador, em grupos</b> (clique no nome do grupo para marcar todas):<ul><li>Estrutura: adicionadas, removidas, linhas mescladas e divididas</li><li>Tempo: entrada e saída</li><li>Texto e formatação: palavras, pontuação e maiúsculas, quebra de linha, itálico/negrito/sublinhado, outras tags e posicionamento, espaços em branco e outras diferenças</li><li>Sem alteração</li></ul></li><li><b>Números originais das legendas</b> nos dois lados de cada linha (ex.: “Orig. #12 · Mod. #13”, ou “#3–4” quando há legendas unidas ou divididas).</li><li><b>Tempos:</b> só a parte do timecode que mudou fica destacada, com a diferença em ms ou em frames.</li><li><b>Filtros:</b> clique nas categorias para ver só aquelas; escolha se a legenda precisa ter qualquer uma ou todas as categorias marcadas.</li><li><b>Tolerância de tempo</b> em milissegundos ou em frames (usando o frame rate do arquivo ou um escolhido) para ignorar diferenças pequenas.</li><li><b>Exibir somente mudanças</b> ou o arquivo todo.</li><li><b>Contexto:</b> mostra as legendas vizinhas de cada mudança, com botões para ver mais antes e depois.</li><li><b>Baixar relatório</b> em TXT, HTML ou XLSX (Excel) com as linhas que aparecem com os filtros atuais: números, tempos, categorias e o texto das duas versões.</li><li>Trocar os lados (original ↔ modificada) e limpar tudo.</li><li>Tema claro e escuro automático.</li></ul><h3>Privacidade</h3><p>Tudo roda no seu navegador. Nenhum arquivo é enviado para lugar nenhum.</p></div></span></div>
   <p class="sub">Compare duas versões de legenda: SRT, DFXP, TTML, PXTT e TTAL.<br/>Tudo roda no seu navegador, nada é enviado para lugar nenhum.</p>
 </div>
   <div class="drops">
@@ -77,13 +101,15 @@ footer.ft a{color:var(--ac);font-weight:600;text-decoration:underline;text-under
     <button id="swap" title="Trocar A e B">⇄</button>
     <label class="drop" id="dB"><b>Legenda Modificada</b><small>Clique ou arraste um arquivo</small><input type="file" accept=".srt,.ttal,.dfxp,.ttml,.pxtt,.xml,.json,.txt" hidden></label>
   </div>
+  <div id="resumo" hidden></div>
   <div class="bar" id="chips"></div>
   <div class="opts">
     <label><input type="checkbox" id="onlyCh" checked> Exibir somente mudanças</label>
     <label><input type="checkbox" id="allCtx"> Exibir contexto em todas as linhas</label>
     
     <label><input type="checkbox" id="all"> Exigir categorias marcadas</label>
-    <label>Tolerância de tempo (ms): <input type="number" id="tol" min="0" step="1" value="0"></label>
+    <label>Tolerância de tempo: <input type="number" id="tol" min="0" step="1" value="0"> <select id="tolU" aria-label="Unidade da tolerância"><option value="ms">ms</option><option value="fr">frames</option></select>
+      <select id="tolF" aria-label="Frame rate da tolerância" title="Frame rate usado para converter frames em tempo" hidden><option value="">fps do arquivo</option><option value="23.976">23,976</option><option value="24">24</option><option value="25">25</option><option value="29.97">29,97</option><option value="30">30</option><option value="50">50</option><option value="59.94">59,94</option><option value="60">60</option></select></label>
     <button id="clr">Limpar filtros</button>
     <button id="clrFiles">Limpar legendas carregadas</button>
   </div>
@@ -91,8 +117,61 @@ footer.ft a{color:var(--ac);font-weight:600;text-decoration:underline;text-under
 <div class="sticky"><div>Posição / Tempos</div><div id="hA">Legenda Original</div><div id="hB">Legenda Modificada</div><div></div></div>
 <main id="out"><div class="none">Carregue as duas legendas para comparar.</div></main>
 
-<footer class="ft"><p>Veja mais ferramentas úteis para legendagem clicando <a href="https://matmaggi.github.io/subtools/">aqui</a>.</p></footer>
+<footer class="ft"><p>Veja mais ferramentas úteis para legendagem clicando <a href="https://matmaggi.github.io/subtools/">aqui</a>.</p><p>Achou a ferramenta útil? Faz um PIX! <b class="pix" title="Clique para selecionar a chave PIX">5a08fa27-b8f4-4935-9857-6b03fb63248a</b></p></footer>
 <script>
+// ---------- relatórios: TXT, HTML ou XLSX ----------
+const escA=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+function baixarBlob(nome,blob){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=nome;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function relHtml(d){
+  return `<!DOCTYPE html><html lang="${escA(document.documentElement.lang||"pt-BR")}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escA(d.tit)}</title><style>body{font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;margin:24px;color:#1b2420;background:#fff}h1{font-size:20px;margin:0 0 4px}p{color:#5f6d66;margin:0 0 4px}.rod{margin:0 0 16px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #d8dfdb;padding:6px 8px;vertical-align:top;text-align:left;white-space:pre-wrap}th{background:#e7edfc;position:sticky;top:0}tr:nth-child(even) td{background:#f6f8f7}</style></head><body><h1>${escA(d.tit)}</h1>${(d.info||[]).map(x=>`<p>${escA(x)}</p>`).join("")}<p class="rod">${escA(d.rod)}</p><table><thead><tr>${d.cab.map(c=>`<th>${escA(c)}</th>`).join("")}</tr></thead><tbody>${d.linhas.map(l=>`<tr>${l.map(c=>`<td>${escA(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></body></html>`;
+}
+const CRCT=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(d){let c=0xFFFFFFFF;for(let i=0;i<d.length;i++)c=CRCT[(c^d[i])&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0}
+function zipStore(files){
+  const en=new TextEncoder(),ch=[],cd=[],u16=v=>[v&255,(v>>>8)&255],u32=v=>[v&255,(v>>>8)&255,(v>>>16)&255,(v>>>24)&255];let off=0;
+  for(const f of files){const nm=en.encode(f.n),d=en.encode(f.d),cr=crc32(d);
+    const h=new Uint8Array([...u32(0x04034b50),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(33),...u32(cr),...u32(d.length),...u32(d.length),...u16(nm.length),...u16(0)]);
+    ch.push(h,nm,d);cd.push({nm,cr,sz:d.length,off});off+=h.length+nm.length+d.length}
+  const ini=off;
+  for(const c of cd){const h=new Uint8Array([...u32(0x02014b50),...u16(20),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(33),...u32(c.cr),...u32(c.sz),...u32(c.sz),...u16(c.nm.length),...u16(0),...u16(0),...u16(0),...u16(0),...u32(0),...u32(c.off)]);ch.push(h,c.nm);off+=h.length+c.nm.length}
+  ch.push(new Uint8Array([...u32(0x06054b50),...u16(0),...u16(0),...u16(cd.length),...u16(cd.length),...u32(off-ini),...u32(ini),...u16(0)]));
+  return new Blob(ch,{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+}
+function relXlsx(d){
+  const x=s=>String(s??"").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  const col=n=>{let s="";n++;while(n){const r=(n-1)%26;s=String.fromCharCode(65+r)+s;n=Math.floor((n-1)/26)}return s};
+  const row=(l,r,st)=>`<row r="${r}">${l.map((v,c)=>`<c r="${col(c)}${r}" s="${st}" t="inlineStr"><is><t xml:space="preserve">${x(v)}</t></is></c>`).join("")}</row>`;
+  const NS='xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"',XH='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+  const sheet=`${XH}<worksheet ${NS}><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${d.larg.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join("")}</cols><sheetData>${row(d.cab,1,1)}${d.linhas.map((l,i)=>row(l,i+2,2)).join("")}</sheetData></worksheet>`;
+  const styles=`${XH}<styleSheet ${NS}><fonts count="2"><font><sz val="10"/><name val="Arial"/></font><font><b/><sz val="10"/><name val="Arial"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFE7EDFC"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="3"><xf numFmtId="49" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/><xf numFmtId="49" fontId="1" fillId="2" borderId="0" xfId="0" applyNumberFormat="1" applyFont="1" applyFill="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf><xf numFmtId="49" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+  const aba=x(String(d.aba||"Relatorio").replace(/[\\\/?*\[\]:]/g,"").slice(0,31));
+  return zipStore([
+    {n:"[Content_Types].xml",d:`${XH}<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>`},
+    {n:"_rels/.rels",d:`${XH}<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`},
+    {n:"xl/workbook.xml",d:`${XH}<workbook ${NS} xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="${aba}" sheetId="1" r:id="rId1"/></sheets></workbook>`},
+    {n:"xl/_rels/workbook.xml.rels",d:`${XH}<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`},
+    {n:"xl/styles.xml",d:styles},
+    {n:"xl/worksheets/sheet1.xml",d:sheet}
+  ]);
+}
+function menuRel(btn,fn){
+  document.querySelectorAll(".relmenu").forEach(m=>m.remove());
+  const m=document.createElement("div");m.className="relmenu";m.setAttribute("role","menu");
+  [["txt","TXT"],["html","HTML"],["xlsx","XLSX (Excel)"]].forEach(([k,n])=>{const b=document.createElement("button");b.type="button";b.className="mini";b.setAttribute("role","menuitem");b.textContent=n;b.onclick=e=>{e.stopPropagation();m.remove();fn(k)};m.appendChild(b)});
+  document.body.appendChild(m);
+  const r=btn.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
+  m.style.top=(r.bottom+sy+6)+"px";m.style.left=Math.max(8,Math.min(r.left+sx+r.width/2-m.offsetWidth/2,document.documentElement.clientWidth-m.offsetWidth-8))+"px";
+  const fecha=e=>{if(!m.contains(e.target)){m.remove();document.removeEventListener("click",fecha,true);document.removeEventListener("keydown",esc1,true)}};
+  const esc1=e=>{if(e.key==="Escape"){m.remove();document.removeEventListener("click",fecha,true);document.removeEventListener("keydown",esc1,true)}};
+  setTimeout(()=>{document.addEventListener("click",fecha,true);document.addEventListener("keydown",esc1,true)},0);
+}
+function baixarRel(tp,base,txtFn,dadosFn){
+  if(tp==="txt")return baixarBlob(base+".txt",new Blob([txtFn()],{type:"text/plain;charset=utf-8"}));
+  const d=dadosFn();
+  if(tp==="html")baixarBlob(base+".html",new Blob([relHtml(d)],{type:"text/html;charset=utf-8"}));
+  else baixarBlob(base+".xlsx",relXlsx(d));
+}
+
 const CATS=[
 ['add','Adicionadas','--add'],['rem','Removidas','--rem'],['merge','Linhas mescladas','--merge'],['split','Linhas divididas','--split'],
 ['in','Tempo de entrada','--in'],['out','Tempo de saída','--out'],
@@ -105,14 +184,26 @@ const S={A:null,B:null,nameA:'A',nameB:'B',pairs:[],sel:new Set(),ext:new Map()}
 const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
+/* SRT: cada legenda vai de uma linha de tempo até a próxima. Linhas em branco (mesmo com espaços) no meio do texto
+   não cortam a legenda, e um número sozinho só é a numeração se vier logo antes da linha de tempo. */
 function parse(t){
-  t=t.replace(/^\uFEFF/,'').replace(/\r\n?/g,'\n');const out=[];
-  for(const b of t.split(/\n{2,}/)){
-    const l=b.split('\n'),i=l.findIndex(x=>x.includes('-->'));if(i<0)continue;
-    const m=l[i].match(/(\d+):(\d+):(\d+)[,.](\d+)\s*-->\s*(\d+):(\d+):(\d+)[,.](\d+)/);if(!m)continue;
-    const ms=(h,mi,s,f)=>+h*3600000+ +mi*60000+ +s*1000+ +f.padEnd(3,'0').slice(0,3);
-    out.push({s:ms(m[1],m[2],m[3],m[4]),e:ms(m[5],m[6],m[7],m[8]),text:l.slice(i+1).join('\n')});
-  }return out;
+  t=t.replace(/^\uFEFF/,'').replace(/\r\n?/g,'\n');const out=[],L=t.split('\n');let cur=null;
+  const TM=/(\d+):(\d+):(\d+)[,.](\d+)\s*-->\s*(\d+):(\d+):(\d+)[,.](\d+)/;
+  const ms=(h,mi,s,f)=>+h*3600000+ +mi*60000+ +s*1000+ +f.padEnd(3,'0').slice(0,3);
+  const fecha=()=>{if(!cur)return;while(cur.tx.length&&!cur.tx[cur.tx.length-1].trim())cur.tx.pop();
+    cur.text=cur.tx.filter(x=>x.trim()).join('\n');delete cur.tx;out.push(cur);cur=null};
+  for(let k=0;k<L.length;k++){
+    const m=L[k].match(TM);
+    if(!m){if(cur)cur.tx.push(L[k]);continue}
+    let num=null;
+    if(cur){let j=cur.tx.length-1;while(j>=0&&!cur.tx[j].trim())j--;
+      if(j>=0&&/^\s*\d+\s*$/.test(cur.tx[j])&&(j===0||!cur.tx[j-1].trim())){num=+cur.tx[j];cur.tx.length=j}}
+    else{let j=k-1;while(j>=0&&!L[j].trim())j--;if(j>=0&&/^\s*\d+\s*$/.test(L[j]))num=+L[j]}
+    fecha();
+    cur={s:ms(m[1],m[2],m[3],m[4]),e:ms(m[5],m[6],m[7],m[8]),num,tx:[]};
+  }
+  fecha();
+  return out;
 }
 function comp(ms,fps){
   if(fps){const n=Math.round(fps),f=Math.round(ms*fps/1000),s=Math.floor(f/n);return[Math.floor(s/3600),Math.floor(s/60)%60,s%60,f%n].map(v=>String(v).padStart(2,'0'))}
@@ -136,13 +227,17 @@ const norm=s=>s.trim().split('\n').map(x=>x.trim().replace(/ +/g,' ')).join('\n'
 const R3=n=>Math.round(n*1000)/1000;
 function ttalFps(s){const n=(String(s||'').match(/\d+/)||[''])[0];return n==='2397'||n==='2398'?24000/1001:n==='2997'?30000/1001:n==='5994'?60000/1001:+n||24000/1001}
 function ttalText(e){
-  const txt=e.txt||'',tg={italic:'i',bold:'b',underline:'u'};
-  const st=(e.styles||[]).filter(x=>tg[x.type]).map(x=>({k:tg[x.type],f:Math.max(0,x.from),t:Math.min(txt.length,x.to)})).filter(x=>x.t>x.f);
-  let o='';
+  /* marca os estilos de cada caractere e abre/fecha as tags só onde o conjunto muda: funciona com intervalos
+     sobrepostos (itálico + negrito) e sempre gera tags bem aninhadas */
+  const txt=e.txt||'',tg={italic:'i',bold:'b',underline:'u'},on=Array.from({length:txt.length},()=>new Set());
+  for(const x of e.styles||[]){const g=tg[x.type];if(!g)continue;for(let k=Math.max(0,x.from);k<Math.min(txt.length,x.to);k++)on[k].add(g)}
+  let o='',open=[];
   for(let i=0;i<=txt.length;i++){
-    st.filter(x=>x.t===i).reverse().forEach(x=>o+='</'+x.k+'>');
-    st.filter(x=>x.f===i).forEach(x=>o+='<'+x.k+'>');
-    if(i<txt.length)o+=txt[i];
+    const want=i<txt.length?['i','b','u'].filter(g=>on[i].has(g)):[];
+    let keep=0;while(keep<open.length&&keep<want.length&&open[keep]===want[keep])keep++;
+    for(let j=open.length-1;j>=keep;j--)o+='</'+open[j]+'>';
+    for(let j=keep;j<want.length;j++)o+='<'+want[j]+'>';
+    open=want;if(i<txt.length)o+=txt[i];
   }
   return(e.rgn==='top'?'{\\an8}':'')+o;
 }
@@ -155,13 +250,16 @@ function parseTtml(t){
   if(doc.getElementsByTagName('parsererror').length)throw new Error('XML inválido');
   const tt=doc.documentElement,g=(el,n)=>el.getAttribute('tts:'+n)||el.getAttribute(n)||'',at=n=>tt.getAttribute('ttp:'+n)||tt.getAttribute(n)||'';
   const nom=+at('frameRate')||30,mu=(at('frameRateMultiplier')||'1 1').split(/\s+/).map(Number),eff=nom*(mu[0]||1)/(mu[1]||1),tick=+at('tickRate')||10000000;
+  /* drop-frame (29,97/59,94): o timecode pula 2 (ou 4) números de quadro por minuto, exceto a cada 10 minutos */
+  const dropDoc=/^dropNTSC$/i.test(at('dropMode'));
+  const frs=(h,mi,s,f,drop)=>{const tot=((h*60+mi)*60+s)*nom+f;if(!drop||(nom!==30&&nom!==60))return tot;const dpm=nom===30?2:4,min=h*60+mi;return tot-dpm*(min-Math.floor(min/10))};
   const all=n=>Array.from(doc.getElementsByTagNameNS('*',n)),sty={},reg={};
   const fl=el=>{const o={},a=g(el,'fontStyle'),b=g(el,'fontWeight'),u=g(el,'textDecoration');if(a)o.i=/italic|oblique/.test(a);if(b)o.b=/bold/.test(b);if(u)o.u=/underline/.test(u);return o};
   all('style').forEach(s=>sty[s.getAttribute('xml:id')]=fl(s));
   all('region').forEach(r=>reg[r.getAttribute('xml:id')]=g(r,'displayAlign'));
   const flags=(el,inh)=>{let o={...inh};(el.getAttribute('style')||'').split(/\s+/).forEach(id=>{if(sty[id])o={...o,...sty[id]}});return{...o,...fl(el)}};
   const tm=v=>{v=(v||'').trim();let m;
-    if(m=v.match(/^(\d+):(\d+):(\d+):(\d+)(?:\.\d+)?$/))return{ms:R3((((+m[1]*60+ +m[2])*60+ +m[3])*nom+ +m[4])*1000/eff),fps:eff};
+    if(m=v.match(/^(\d+):(\d+):(\d+)([:;])(\d+)(?:\.\d+)?$/))return{ms:R3(frs(+m[1],+m[2],+m[3],+m[5],dropDoc||m[4]===';')*1000/eff),fps:eff};
     if(m=v.match(/^(\d+):(\d+):(\d+)(?:[.,](\d+))?$/))return{ms:R3(((+m[1]*60+ +m[2])*60+ +m[3])*1000+(m[4]?+('0.'+m[4])*1000:0)),fps:null};
     if(m=v.match(/^([\d.]+)(h|ms|m|s|f|t)$/)){const n=+m[1];return m[2]==='f'?{ms:R3(n*1000/eff),fps:eff}:{ms:R3(m[2]==='t'?n*1000/tick:n*({h:3600000,m:60000,s:1000,ms:1})[m[2]]),fps:null}}
     return null};
@@ -189,6 +287,7 @@ function parseAny(t,name){
   const s=t.replace(/^\uFEFF/,'').trimStart(),ext=(name.split('.').pop()||'').toUpperCase();
   const f=s[0]==='{'?'TTAL':s[0]==='<'?'TTML':'SRT';
   const cues=(f==='TTAL'?parseTtal(t):f==='TTML'?parseTtml(t):parse(t)).sort((x,y)=>x.s-y.s||x.e-y.e).map(prep);
+  cues.forEach((c,i)=>{if(c.num==null)c.num=i+1});   // SRT mantém a numeração do arquivo; nos outros formatos, a ordem
   if(!cues.length)throw new Error('nenhuma legenda encontrada');
   return{cues,label:f==='TTML'?(['DFXP','PXTT','TTML'].includes(ext)?ext:'TTML'):f};
 }
@@ -251,32 +350,35 @@ function diff(a,b){
   }
   return[ra,rb];
 }
-function tokHtml(t,ch){
-  let h;
-  if(t==='\n')h='<span class="nl">↵</span>\n';
-  else if(/^[ \t]+$/.test(t))h=ch?t.replace(/ /g,'·').replace(/\t/g,'→'):t;
-  else if(t[0]==='<'&&t.length>1||t[0]==='{'&&t.length>1)h='<span class="tgx">'+esc(t)+'</span>';
-  else h=esc(t);
-  if(ch&&t==='\n')h='<span class="nl">↵</span>\n';
-  return ch?(ch===1?'<MARK>':'')+h+(ch===1?'</MARK>':''):h;
+function tokHtml(t){
+  if(t==='\n')return '<span class="nl">↵</span>\n';
+  if(/^[ \t]+$/.test(t))return t;
+  if(t[0]==='<'&&t.length>1||t[0]==='{'&&t.length>1)return '<span class="tgx">'+esc(t)+'</span>';
+  return esc(t);
 }
 function sideHtml(toks,kind){
   const tag=kind==='a'?'del':'ins';let h='';
   for(let i=1;i<toks.length-1;i++)if(!toks[i][1]&&/^[ \t]+$/.test(toks[i][0])&&toks[i-1][1]&&toks[i+1][1])toks[i][1]=1;
-  for(let i=0;i<toks.length;){if(!toks[i][1]){h+=tokHtml(toks[i][0],0);i++;continue}
+  for(let i=0;i<toks.length;){if(!toks[i][1]){h+=tokHtml(toks[i][0]);i++;continue}
     let j=i,r='',ws=true;while(j<toks.length&&toks[j][1]){const t=toks[j][0];if(!/^[ \t]+$/.test(t))ws=false;r+=t;j++}
-    const inner=ws?esc(r).replace(/ /g,'·').replace(/\t/g,'→'):(r.match(TOK)||[]).map(t=>tokHtml(t,0)).join('');
+    const inner=ws?esc(r).replace(/ /g,'·').replace(/\t/g,'→'):(r.match(TOK)||[]).map(t=>tokHtml(t)).join('');
     h+=`<${tag}>${inner}</${tag}>`;i=j}
   return h;
 }
-function plainHtml(s){return(s.match(TOK)||[]).map(t=>tokHtml(t,0)).join('')}
+function plainHtml(s){return(s.match(TOK)||[]).map(t=>tokHtml(t)).join('')}
 
+/* tolerância de tempo em milissegundos (convertendo de frames quando for o caso) */
+function fileFps(){const c=(S.A&&S.A.find(x=>x.fps))||(S.B&&S.B.find(x=>x.fps));return c?c.fps:null}
+function tolMs(){
+  const v=+$('tol').value||0;if($('tolU').value!=='fr')return v;
+  const fps=+$('tolF').value||fileFps()||24000/1001;return v*1000/fps;
+}
 function comb(ps){return ps.length===1?ps[0]:prep({s:ps[0].s,e:ps[ps.length-1].e,fps:ps[0].fps,text:ps.map(x=>x.text).join('\n')})}
 const wset=ps=>new Set(ps.flatMap(x=>x.w));
 function dice(x,y){if(!x.size&&!y.size)return 1;let n=0;for(const t of x)if(y.has(t))n++;return 2*n/(x.size+y.size)}
 // detecta junções (A tem várias, B uma) e divisões (A uma, B várias)
 function groups(raw){
-  const TOL=+$('tol').value||0;
+  const TOL=tolMs();
   const res=[];
   for(let i=0;i<raw.length;i++){
     const[a,b]=raw[i];
@@ -297,24 +399,28 @@ function groups(raw){
 }
 function compare(){
   if(!S.A||!S.B)return;
-  const tol=+$('tol').value||0;
+  const tol=tolMs();
   S.pairs=groups(align(S.A,S.B)).map(g=>{let c=classify(g.a,g.b,tol);if(g.pa.length>1||g.pb.length>1){c=c.filter(x=>x!=='same');if(g.pa.length>1)c.push('merge');if(g.pb.length>1)c.push('split')}return{...g,c}});
   S.ext=new Map();render(true);
 }
 function counts(){const k={};CATS.forEach(c=>k[c[0]]=0);S.pairs.forEach(p=>p.c.forEach(x=>k[x]++));return k}
+const GRUPOS=[['Estrutura',['add','rem','merge','split']],['Tempo',['in','out']],['Texto e formatação',['text','punct','br','ital','fmt','ws','other']],['',['same']]];
 function renderChips(){
-  const k=counts();
-  $('chips').innerHTML=CATS.map(([id,l,v])=>`<span class="chip ${S.sel.has(id)?'on':''} ${k[id]?'':'zero'}" style="--c:var(${v})" data-c="${id}">${l}<i>${k[id]}</i></span>`).join('');
+  const k=counts(),chip=id=>{const[,l,v]=CM[id];return `<span class="chip ${S.sel.has(id)?'on':''} ${k[id]?'':'zero'}" style="--c:var(${v})" data-c="${id}">${l}<i>${k[id]}</i></span>`};
+  $('chips').innerHTML=GRUPOS.map(([n,ids])=>`<div class="cgrp">${n?`<span class="cgl" data-g="${ids.join(',')}" title="Marcar ou desmarcar todas deste grupo">${n}</span>`:''}${ids.map(chip).join('')}</div>`).join('');
 }
 const isOn=i=>{const e=S.ext.get(i);return e&&e.on!==undefined?e.on:$('allCtx').checked};
 function hit(p){
   if(!S.sel.size)return !$('onlyCh').checked||p.c[0]!=='same';
   const s=[...S.sel];return $('all').checked?s.every(x=>p.c.includes(x)):s.some(x=>p.c.includes(x));
 }
+/* números das legendas nos arquivos: "Orig. #12 · Mod. #13" (com intervalo quando há legendas unidas ou divididas) */
+const numsOf=ps=>!ps.length?'—':ps.length===1?'#'+ps[0].num:'#'+ps[0].num+'–'+ps[ps.length-1].num;
+const numsTxt=p=>`Orig. ${numsOf(p.pa)} · Mod. ${numsOf(p.pb)}`;
 function rowHtml(p,i,ctx,tg){
   const{a,b}=p,main=p.c[0];
   const col=`var(${CM[main][2]})`;
-  let meta=`<span class="n">#${i+1}</span>`;
+  let meta=`<span class="nums">${numsTxt(p)}</span>`;
   const d=(x,y,fa,fb)=>{let v,u;if(fa&&fb&&Math.abs(fa-fb)<1e-6){v=Math.round(y*fa/1000)-Math.round(x*fa/1000);u=' fr'}else{v=Math.round(y-x);u=' ms'}return v?` <span class="ch">${v>0?'+':''}${v}${u}</span>`:''};
   if(a&&b){
     const cs=p.c.includes('in'),ce=p.c.includes('out');
@@ -331,11 +437,50 @@ function rowHtml(p,i,ctx,tg){
   else{ha=a?plainHtml(a.text):'<span class="empty">— não existe —</span>';hb=b?plainHtml(b.text):'<span class="empty">— não existe —</span>'}
   return `<div class="row ${ctx?'ctx':p.c[0]!=='same'?'chg':''} ${a?'':'add'} ${b?'':'rem'}" style="border-left-color:${col}"><div class="meta">${meta}</div><div class="txt a">${ha}</div><div class="txt b">${hb}</div><div class="act">${tg===undefined?'':`<button class="ctxb" data-act="t" data-i="${i}">${tg?'Ocultar contexto':'Ver contexto'}</button>`}</div></div>`;
 }
+function renderResumo(){
+  const P=S.pairs,box=$('resumo');
+  if(!P.length){box.hidden=true;box.innerHTML='';return}
+  const ch=P.filter(p=>p.c[0]!=='same').length,k=counts(),nf=n=>n.toLocaleString('pt-BR');
+  const grp=GRUPOS.filter(g=>g[0]).map(([n,ids])=>[n,P.filter(p=>p.c.some(x=>ids.includes(x))).length]).filter(x=>x[1]);
+  const top=CATS.filter(c=>c[0]!=='same'&&k[c[0]]).sort((a,b)=>k[b[0]]-k[a[0]]).slice(0,3).map(c=>`${c[1]} (${nf(k[c[0]])})`);
+  box.innerHTML=`<div class="rbar"><span><b>${nf(P.length)}</b> linhas comparadas · <b>${nf(S.A.length)}</b> legendas no original e <b>${nf(S.B.length)}</b> na modificada</span>
+    <span><b>${nf(ch)}</b> com mudanças (${(P.length?ch/P.length*100:0).toFixed(1).replace('.',',')}%)${grp.length?' · '+grp.map(([n,v])=>`${n}: ${nf(v)}`).join(' · '):''}</span>
+    ${top.length?`<span>Mais comuns: ${top.join(', ')}</span>`:''}
+    <button id="rel" title="Exporta as linhas que aparecem com os filtros atuais">Baixar relatório</button></div>`;
+  box.hidden=false;
+  $('rel').onclick=e=>{e.stopPropagation();menuRel(e.currentTarget,tp=>baixarRel(tp,'comparacao_'+S.nameB.replace(/\.[^.]+$/,''),relTxt,relDados))};
+}
+/* relatório: as linhas visíveis com os filtros atuais */
+function relLinhas(){
+  return S.pairs.map((p,i)=>({p,i})).filter(x=>hit(x.p)).map(({p})=>{
+    const ta=p.pa,tb=p.pb,a=p.a,b=p.b;
+    return{oN:numsOf(ta),mN:numsOf(tb),oI:a?tc(ta[0].s,ta[0].fps):'',oF:a?tc(ta[ta.length-1].e,ta[ta.length-1].fps):'',
+      mI:b?tc(tb[0].s,tb[0].fps):'',mF:b?tc(tb[tb.length-1].e,tb[tb.length-1].fps):'',cat:p.c.map(x=>CM[x][1]).join(', '),oT:a?a.text:'',mT:b?b.text:''};
+  });
+}
+function relInfo(){
+  const v=+$('tol').value||0;
+  return[`Original: ${S.nameA}`,`Modificada: ${S.nameB}`,`Tolerância de tempo: ${v} ${$('tolU').value==='fr'?'frame(s)':'ms'}`,($('resumo').innerText||'').replace(/\s*Baixar relatório\s*$/,'').replace(/\n+/g,' · ')];
+}
+function relTxt(){
+  const o=['Comparador de Legendas',...relInfo(),''];
+  for(const r of relLinhas()){
+    o.push(`Orig. ${r.oN} ${r.oI}${r.oF?' → '+r.oF:''} | Mod. ${r.mN} ${r.mI}${r.mF?' → '+r.mF:''}`,`   [${r.cat}]`);
+    o.push('   Original:   '+(r.oT?r.oT.replace(/\n/g,' / '):'— não existe —'));
+    o.push('   Modificada: '+(r.mT?r.mT.replace(/\n/g,' / '):'— não existe —'),'');
+  }
+  return o.join('\n');
+}
+function relDados(){
+  return{tit:'Comparador de Legendas',aba:'Comparação',info:relInfo(),rod:`${relLinhas().length} linha(s) no relatório.`,
+    cab:['Orig. nº','Mod. nº','Orig. início','Orig. fim','Mod. início','Mod. fim','Categorias','Texto original','Texto modificado'],
+    larg:[9,9,14,14,14,14,30,50,50],linhas:relLinhas().map(r=>[r.oN,r.mN,r.oI,r.oF,r.mI,r.mF,r.cat,r.oT,r.mT])};
+}
 function render(chips){
-  if(chips)renderChips();
+  if(chips){renderChips();renderResumo()}
   $('hA').textContent='Legenda Original';$('hB').textContent='Legenda Modificada';
   const P=S.pairs,out=$('out');
-  if(!P.length){out.innerHTML='<div class="none">Carregue as duas legendas para comparar.</div>';return}
+  if(!P.length){out.innerHTML='<div class="none">Carregue as duas legendas para comparar.</div>';renderResumo();return}
   const hits=[];P.forEach((p,i)=>{if(hit(p))hits.push(i)});
   if(!hits.length){out.innerHTML='<div class="none">Nenhuma legenda nesse filtro.</div>';return}
   let h='';
@@ -361,13 +506,24 @@ function render(chips){
   if(prevEnd<P.length-1)h+=`<div class="gap">⋯ ${P.length-1-prevEnd} legenda(s) oculta(s) ⋯</div>`;
   out.innerHTML=h;
 }
+/* UTF-8, UTF-16 (com BOM) ou Windows-1252 */
+function decodeBuf(buf){
+  const b=new Uint8Array(buf);
+  if(b[0]===0xFF&&b[1]===0xFE)return new TextDecoder('utf-16le').decode(b.subarray(2));
+  if(b[0]===0xFE&&b[1]===0xFF)return new TextDecoder('utf-16be').decode(b.subarray(2));
+  try{return new TextDecoder('utf-8',{fatal:true}).decode(b)}catch(e){return new TextDecoder('windows-1252').decode(b)}
+}
 function load(which,file){
   const r=new FileReader();r.onload=()=>{
-    let res;try{res=parseAny(r.result,file.name)}catch(err){$('d'+which).querySelector('small').textContent='Erro ao ler '+file.name+': '+err.message;return}
+    let res;try{res=parseAny(decodeBuf(r.result),file.name)}catch(err){
+      // o lado com erro fica vazio (a comparação não continua mostrando o arquivo anterior)
+      S[which]=null;S['name'+which]='';S.pairs=[];S.ext=new Map();
+      const d=$('d'+which);d.classList.remove('ok');d.querySelector('small').textContent='Erro ao ler '+file.name+': '+err.message;
+      render(true);return}
     S[which]=res.cues;S['name'+which]=file.name;
     const d=$('d'+which);d.classList.add('ok');d.querySelector('small').textContent=file.name+' · '+res.label+' · '+S[which].length+' legendas';
     compare();
-  };r.readAsText(file,'utf-8');
+  };r.readAsArrayBuffer(file);
 }
 ['A','B'].forEach(w=>{
   const d=$('d'+w);
@@ -381,7 +537,10 @@ $('swap').onclick=()=>{
   const a=$('dA').querySelector('small'),b=$('dB').querySelector('small'),t=a.textContent;a.textContent=b.textContent;b.textContent=t;
   compare();
 };
-$('chips').onclick=e=>{const c=e.target.closest('.chip');if(!c)return;const id=c.dataset.c;S.sel.has(id)?S.sel.delete(id):S.sel.add(id);render(true)};
+$('chips').onclick=e=>{
+  const g=e.target.closest('.cgl');
+  if(g){const ids=g.dataset.g.split(','),all=ids.every(x=>S.sel.has(x));ids.forEach(x=>all?S.sel.delete(x):S.sel.add(x));render(true);return}
+  const c=e.target.closest('.chip');if(!c)return;const id=c.dataset.c;S.sel.has(id)?S.sel.delete(id):S.sel.add(id);render(true)};
 $('clr').onclick=()=>{S.sel.clear();render(true)};
 $('clrFiles').onclick=()=>{
   S.A=S.B=null;S.pairs=[];S.sel.clear();S.ext=new Map();S.nameA=S.nameB='';
@@ -391,6 +550,8 @@ $('clrFiles').onclick=()=>{
 $('all').onchange=$('onlyCh').onchange=()=>render();
 $('allCtx').onchange=()=>{S.ext=new Map();render()};
 $('tol').onchange=compare;
+$('tolU').onchange=()=>{$('tolF').hidden=$('tolU').value!=='fr';compare()};
+$('tolF').onchange=compare;
 $('out').onclick=e=>{
   const b=e.target.closest('[data-act]');if(!b)return;const i=+b.dataset.i,x=S.ext.get(i)||{b:0,a:0};
   if(b.dataset.act==='t'){x.on=!isOn(i);x.b=x.a=0}else x[b.dataset.act]+=2;S.ext.set(i,x);
